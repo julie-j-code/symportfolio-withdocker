@@ -13,3 +13,7 @@ import {Tooltip, Popover, Toast } from "bootstrap";
 
 // start the Stimulus application
 import './bootstrap';
+
+
+// js propre au theme gratuit bootstrap
+import './js/main';
