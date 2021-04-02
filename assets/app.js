@@ -8,6 +8,8 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
 
+import { swiper } from "swiper/bundle";
+
 // to specify which plugins you need
 import {Tooltip, Popover, Toast } from "bootstrap";
 
@@ -17,3 +19,4 @@ import './bootstrap';
 
 // js propre au theme gratuit bootstrap
 import './js/main';
+
