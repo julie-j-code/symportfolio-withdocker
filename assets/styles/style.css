@@ -1322,7 +1322,7 @@ section {
 --------------------------------------------------------------*/
 .contact .info {
   width: 100%;
-  background: #fff;
+  /* background: #fff; */
 }
 
 .contact .info i {
@@ -1331,7 +1331,7 @@ section {
   float: left;
   width: 44px;
   height: 44px;
-  background: #ffecde;
+  /* background: #ffecde; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1365,7 +1365,7 @@ section {
 
 .contact .php-email-form {
   width: 100%;
-  background: #fff;
+  /* background: #fff; */
 }
 
 .contact .php-email-form .form-group {
@@ -1394,9 +1394,11 @@ section {
   font-weight: 600;
 }
 
+.contact{background-color: none;}
+
 .contact .php-email-form .loading {
   display: none;
-  background: #fff;
+  /* background: #fff; */
   text-align: center;
   padding: 15px;
 }
