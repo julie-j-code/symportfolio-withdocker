@@ -4,63 +4,26 @@
 
     <div class="section-title" data-aos="zoom-out">
       <h2>Portfolio</h2>
-      <p>What we've done</p>
+      <p>Dernières réalisations</p>
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <!-- requête  -->
+      {% for peinture in peintures %}
+        
+      <div class="col-md-6 mt-5">
         <div class="icon-box" data-aos="zoom-in-left">
           <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div>
-          <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-          <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-            occaecati cupiditate non provident</p>
+          <img src="{{peinture.file}}" alt="" class="img-fluid rounded mb-3">
+          <h4 class="title"><a href="">{{peinture.nom}}</a></h4>
+          <p class="description">{{peinture.description | u.truncate(200, '...', false)}}</p>
+          <p class="description">Date de réalisation : {{peinture.dateRealisation |date('d/m/Y')}}</p>
         </div>
       </div>
-      <div class="col-md-6 mt-5 mt-md-0">
-        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
-          <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div>
-          <h4 class="title"><a href="">Dolor Sitema</a></h4>
-          <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat tarad limino ata</p>
-        </div>
-      </div>
+      {% endfor %}
 
-      <div class="col-md-6 mt-5">
-        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
-          <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
-          <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-          <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur</p>
-        </div>
-      </div>
-      <div class="col-md-6 mt-5">
-        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="300">
-
-            <img src="..." class="card-img-top" alt="...">
- 
-          <div class="icon"><i class="bi bi-binoculars" style="color:#41cf2e;"></i></div>
-          <h4 class="title"><a href="">Magni Dolores</a></h4>
-          <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 mt-5">
-        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
-          <div class="icon"><i class="bi bi-globe" style="color: #d6ff22;"></i></div>
-          <h4 class="title"><a href="">Nemo Enim</a></h4>
-          <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-            voluptatum deleniti atque</p>
-        </div>
-      </div>
-      <div class="col-md-6 mt-5">
-        <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="500">
-          <div class="icon"><i class="bi bi-clock" style="color: #4680ff;"></i></div>
-          <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-          <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-            soluta nobis est eligendi</p>
-        </div>
-      </div>
+      <!--  -->
+     
     </div>
 
 

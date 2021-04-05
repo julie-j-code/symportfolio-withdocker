@@ -103,7 +103,7 @@ for ($l=0; $l <2 ; $l++) {
     ->setUser($users[mt_rand(0, count($users) -1)])
     ->setFile($faker->imageUrl(640, 480, true));
 
-    $manager->persist($categorie);
+    $manager->persist($peinture);
 
 
 }
