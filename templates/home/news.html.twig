@@ -19,8 +19,12 @@
 
         </div>
       </div>
-
       {% endfor %}
+      
+      <div class="justify-content-center mt-5">
+        {% do blogposts.setPageRange(2) %}
+        {{ knp_pagination_render(blogposts, '/base/pagination.html.twig') }}
+      </div>
 
     </div>
 
