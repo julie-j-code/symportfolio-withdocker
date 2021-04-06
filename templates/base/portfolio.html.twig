@@ -1,32 +1,45 @@
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-  
-          <div class="section-title" data-aos="zoom-out">
-            <h2>Portfolio</h2>
-            <p>What we've done</p>
-          </div>
-  
-          <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>Portfolio</h2>
+      <p>What we've done</p>
+    </div>
+
+    <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
+      <li data-filter="*" class="filter-active">All</li>
+      {% for categorie in categories %}
+      <li data-filter=".filter-{{categorie.nom}}">{{categorie.nom}}</li>
+
+      {% endfor %}
+      <!-- <li data-filter=".filter-app">App</li>
             <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
-          </ul>
-  
-          <div class="row portfolio-container" data-aos="fade-up">
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-img"><img src="https://th.bing.com/th/id/OIP.a864NK8Qx4o1c3cWfZl1VwHaHa?w=206&h=206&c=7&o=5&dpr=1.25&pid=1.7" class="img-fluid" alt=""></div>
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <a href="../../assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <li data-filter=".filter-web">Web</li> -->
+    </ul>
+
+    <div class="row portfolio-container" data-aos="fade-up">
+
+      {% for peinture in peintures %}
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-img"><img src="{{peinture.file}}" class="img-fluid" alt=""></div>
+        <div class="portfolio-info">
+
+          <h4>
+            {{peinture.nom}}
+            {% for item in peinture.categorie %}
+            <span class="text-white text-small">Cat : {{item.nom}}</span>
+            <!-- <a href="{{peinture.file}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{item.nom}}"><i class="bx bx-plus"></i></a> -->
+            {% endfor %}
+          </h4>
+
+          <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        </div>
+      </div>
+      {% endfor %}
+
+
+      <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
               <div class="portfolio-img"><img src="../../assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt=""></div>
               <div class="portfolio-info">
                 <h4>Web 3</h4>
@@ -104,9 +117,16 @@
                 <a href="../../assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
               </div>
-            </div>
-  
-          </div>
-  
-        </div>
-      </section><!-- End Portfolio Section -->
+            </div> -->
+
+    </div>
+
+
+    <div class="justify-content-center mt-5">
+      {% do peintures.setPageRange(2) %}
+        {{ knp_pagination_render(peintures, '/base/pagination.html.twig') }}
+    </div>
+
+    </div>
+  </div>
+</section><!-- End Portfolio Section -->
