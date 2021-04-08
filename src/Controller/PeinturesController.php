@@ -30,7 +30,7 @@ class PeinturesController extends AbstractController
             6
         );
 
-        dd($categorieRepository->findAll());
+        // dd($categorieRepository->findAll());
 
         return $this->render('peintures/realisations.html.twig', [
             'controller_name' => 'PeinturesController',
