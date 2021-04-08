@@ -1,1 +1,2 @@
-web: $(composer config bin-dir)/heroku-php-apache2 public/
+release: php bin/console cache:clear
+web: heroku-php-apache2 public/
