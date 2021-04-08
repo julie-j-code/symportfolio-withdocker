@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AProposController!{% endblock %}
+
+{% block body %}
+
+{% include "./home/welcome.html.twig" %}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+            <h2>A Propos de {{user.nom}} {{user.prenom}}</h2>
+            <p>Présentation</p>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+            <div class="col-lg-6">
+                <p>
+                    {{user.aPropos}}
+                </p>
+                <ul>
+                    <li><i class="ri-check-double-line"></i> {{user.telephone}}</li>
+                    <li><i class="ri-check-double-line"></i> {{user.instagram}}</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+                <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                    sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+            <h2>Portfolio</h2>
+            <p>What we've done</p>
+        </div>
+        
+        <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
+            <li data-filter="*" class="filter-active">All</li>
+            {% for peinture in user.peintures %}
+            {% for categorie in peinture.categorie %}
+            <li data-filter=".filter-{{categorie.nom}}">{{categorie.nom}}</li>            
+            {% endfor %}
+            {% endfor %}
+            <!-- <li data-filter=".filter-app">App</li>
+                <li data-filter=".filter-card">Card</li>
+                <li data-filter=".filter-web">Web</li> -->
+            </ul>
+            
+            {% for peinture in user.peintures %}
+           
+            <div class="row portfolio-container" data-aos="fade-up">
+                
+                <div class="col-lg-4 col-md-6 portfolio-item filter-{% for categorie in peinture.categorie %}{{categorie.nom}}{% endfor %}">
+                    <div class="portfolio-img"><img src="{{peinture.file}}" class="img-fluid" alt=""></div>
+                    <div class="portfolio-info">
+                        
+                        <h4>
+                            {{peinture.nom}}
+                            {% for categorie in peinture.categorie %}                            
+                            <span class="text-white text-small">Cat : {{categorie.nom}}</span>
+                            <!-- <a href="" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title=""><i class="bx bx-plus"></i></a> -->
+                            {% endfor %}
+                        </h4>
+
+                    <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+
+
+
+    </div>
+    </div>
+</section><!-- End Portfolio Section -->
+
+
+
+
+    
+{% include "./home/news.html.twig" %}
+
+
+
+
+
+{% endblock %}

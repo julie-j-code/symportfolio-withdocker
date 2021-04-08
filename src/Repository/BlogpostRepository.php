@@ -33,17 +33,22 @@ class BlogpostRepository extends ServiceEntityRepository
       ;
   }
 
-    // public function findByExampleField($value)
-    // {
-    //     return $this->createQueryBuilder('b')
-    //         ->andWhere('b.exampleField = :val')
-    //         ->setParameter('val', $value)
-    //         ->orderBy('b.id', 'ASC')
-    //         ->setMaxResults(10)
-    //         ->getQuery()
-    //         ->getResult()
-    //     ;
-    // }
+
+
+
+
+
+    public function getCurrentPeintre($user)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.user = :user')
+            ->setParameter('user', $user)
+            ->orderBy('b.id', 'DESC')
+             ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
    
 
     /*

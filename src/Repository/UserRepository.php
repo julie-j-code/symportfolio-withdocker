@@ -36,6 +36,40 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
+    /**
+    * Retourne initialement le peinture qui utilise la plateforme
+    * Sans intérêt, il faudra qu'il retourne le peintre d'après id sélectionné
+    * On aura donc une route paramétrable. Plus tard...
+    */
+    
+    public function getCurrentPeintre()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.roles = :roles')
+            ->setParameter('roles', '%"USER_PEINTRE"%')
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+
+
+       /**
+   * @return User[] Returns an array of Blogpost objects
+   */
+
+  public function findPeintres()
+  {
+      return $this->createQueryBuilder('u')
+      ->andWhere('u.user = :user')
+      ->setParameter('roles', '%"USER_PEINTRE"%')
+          ->orderBy('u.id', 'DESC')
+          ->setMaxResults(3)
+          ->getQuery()
+          ->getResult()
+      ;
+  }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

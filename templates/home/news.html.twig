@@ -1,5 +1,5 @@
 <!-- ======= Services Section Actualités ======= -->
-<section id="services" class="services">
+<section id="actu" class="services">
   <div class="container">
 
     <div class="section-title" data-aos="zoom-out">
@@ -14,18 +14,13 @@
         <div class="icon-box" data-aos="zoom-in-left">
           <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div>
           <h4 class="title"><a href="">{{blogpost.titre}}</a></h4>
-          <p class="description">{{blogpost.contenu | u.truncate(150, '...', false)}}}}</p>
+          <p class="description">{{blogpost.contenu | u.truncate(150, '...', false)}}</p>
           <p class="description">Date de publication : {{blogpost.createdAt |date('d/m/Y')}}</p>
 
         </div>
       </div>
       {% endfor %}
       
-      <div class="justify-content-center mt-5">
-        {% do blogposts.setPageRange(2) %}
-        {{ knp_pagination_render(blogposts, '/base/pagination.html.twig') }}
-      </div>
-
     </div>
 
   </div>
