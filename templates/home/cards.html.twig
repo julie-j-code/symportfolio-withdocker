@@ -16,8 +16,9 @@
           <div class="icon"><i class="bi" style="color: #ff689b;"></i></div>
           <img src="{{peinture.file}}" alt="" class="img-fluid rounded mb-3">
           <h4 class="title"><a href="">{{peinture.nom}}</a></h4>
-          <p class="description">{{peinture.description | u.truncate(200, '...', false)}}</p>
-          <p class="description">Date de réalisation : {{peinture.dateRealisation |date('d/m/Y')}}</p>
+          <p class="description">{{peinture.description | u.truncate(150, '...', false)}}</p>
+          <p class="description d-inline-block">Date de réalisation : {{peinture.dateRealisation |date('d/m/Y')}}</p>
+          <span><a href="{{path('realisation',{'id':peinture.id})}}" class="details-link" title="More Details"><i class="bx bx-link ms-lg-5"></i></a></span>
         </div>
       </div>
       {% endfor %}

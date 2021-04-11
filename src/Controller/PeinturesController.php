@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Entity\Peinture;
 use App\Repository\PeintureRepository;
 use App\Repository\CategorieRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -38,6 +39,29 @@ class PeinturesController extends AbstractController
             'peintures' => $peintures,
             'categories' => $categorieRepository->findAll(),
             
+            
+        ]);
+       
+    }
+
+    /**
+     * Affichage détails d'une  peinture
+     * @Route("/realisation/{id}", name="realisation")
+     */
+    public function realisation(
+        Peinture $peinture,
+        PeintureRepository $peintureRepository, 
+        CategorieRepository $categorieRepository): Response
+    {
+        
+        // dd($categorieRepository->findAll());
+        // dd($peinture);
+
+        return $this->render('peintures/realisation.html.twig', [
+            
+            // 'peintures' => $peintureRepository->findAll(),
+            'peinture' => $peinture,
+            // 'categories' => $categorieRepository->findAll()         
             
         ]);
 

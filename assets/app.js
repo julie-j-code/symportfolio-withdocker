@@ -20,6 +20,10 @@ import './bootstrap';
 // js propre au theme gratuit bootstrap
 import './js/main';
 
+// assets/js/_main.js
+// const imagesContext = require.context('./img', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
+// imagesContext.keys().forEach(imagesContext);
+
 
 
 

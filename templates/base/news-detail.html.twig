@@ -1,0 +1,47 @@
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Inner Page Actualités</h2>
+        <ol>
+          <li><a href="{{path('home')}}">Home</a></li>
+          <li>Détails...</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+  <!-- ======= News Details Section ======= -->
+  <section id="news-details" class="portfolio-details">
+    <div class="container">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-8">
+          <p>
+            {{blogpost.contenu}}
+          </p>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="portfolio-info">
+            <h3>{{blogpost.titre}}</h3>
+            <ul>
+              <li><strong>Peintre</strong>: {{blogpost.user.nom}}</li>
+              <li><strong>Date de réalisation</strong>: {{blogpost.createdAt | date("m/d/Y")}}</li>
+              <li><strong>Commentaires</strong>: à venir...</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End News Details Section -->
+
+ 
+</main><!-- End #main -->
