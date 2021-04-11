@@ -20,7 +20,7 @@
               {{peintre.aPropos}}
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+            <img src="{{ asset('build/testimonials/testimonials-1.jpg') }}" class="testimonial-img" alt="">
             <h3>{{peintre.nom}} {{peintre.prenom}}</h3>
             <a class="btn btn-get-started animate__animated animate__fadeInUp scrollto" href="{{ path('a-propos-peintre',{'id':peintre.id})}}">en savoir plus...</a>
           </div>
