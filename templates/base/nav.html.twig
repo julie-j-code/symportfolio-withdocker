@@ -12,16 +12,25 @@
       <ul>
 
 
-        </li>
-        <!-- selon qu'on est dans le context glogal ou particulier (détails peintures ou actualités) -->
-        {% if app.request.get('_route') == 'a-propos-peintre'%}
-        <a class="nav-link scrollto" href="#portfolio">Réalisations</a>
-        {% else %}<a class="nav-link scrollto" href="{{path('home')}}#portfolio">Réalisations</a>{% endif %}
         <li>
-        <li><a class="nav-link scrollto" href="#actu">Actualités</a></li>
-        <li><a class="nav-link scrollto" href="#about">A propos</a></li>
-        <li><a class="nav-link scrollto" href="#team">Nos participants</a></li>
-        <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <!-- selon qu'on est dans le context glogal ou particulier (détails peintures ou actualités) -->
+          {% if app.request.get('_route') == 'a-propos-peintre'%}
+          <a class="nav-link scrollto" href="#portfolio">Réalisations</a>
+          {% else %}<a class="nav-link scrollto" href="{{path('home')}}#portfolio">Réalisations</a>{% endif %}
+        </li>
+        <li>
+          {% if app.request.get('_route') == 'a-propos-peintre'%}
+          <a class="nav-link scrollto" href="#actu">Evènements</a>
+          {% else %}<a class="nav-link scrollto" href="{{path('home')}}#actu">Evènements</a>{% endif %}
+        </li>
+        <li>
+          {% if app.request.get('_route') == 'a-propos-peintre'%}
+          <a class="nav-link scrollto" href="#about">A propos</a>
+          {% else %}<a class="nav-link scrollto" href="{{path('home')}}#about">A propos</a>{% endif %}
+        </li>
+        <li><a class="nav-link scrollto" href="{{path('home')}}#testimonials">Nos artistes</a></li>
+        <li><a class="nav-link scrollto" href="{{path('home')}}#team">Partenaires</a></li>
+        <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="#">Drop Down 1</a></li>
             <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -37,7 +46,7 @@
             <li><a href="#">Drop Down 3</a></li>
             <li><a href="#">Drop Down 4</a></li>
           </ul>
-        </li>
+        </li> -->
         <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
