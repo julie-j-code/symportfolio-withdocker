@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title mt-5" data-aos="zoom-out">
+            <h2>Contact</h2>
+            <p>Nous contacter</p>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-4" data-aos="fade-right">
+                <div class="info bg-transparent">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Localisation:</h4>
+                        <p>Antigone, Montpellier, 34000</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>info@example.com</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Call:</h4>
+                        <p>04 34 12 59 32</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+
+                {{ form_start(form) }}
+                <div class="php-email-form bg-transparent">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder' : 'Votre nom'}})
+                            }}
+                        </div>
+                        <div class="col-md-6 form-group">
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder' : 'Votre email'}}) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        {{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder' : 'Votre message'}}) }}
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message">{{form_errors(form)}}</div>
+                        {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{message}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="text-left">{{ form_widget(form.envoyer)}}</div>
+                    {{ form_end(form) }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
+{% endblock %}
