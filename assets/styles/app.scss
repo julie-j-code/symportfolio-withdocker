@@ -1,10 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./style.css";
 
-
-
-
-
 body {
-    background-color: lightgray;
+  background-color: lightgray;
 }
+
+.admin-form 
+    input, textarea, select {
+  margin: 10px;}
+  
+
+
+

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Peinture{% endblock %}
+
+{% block body %}
+{% include "admin/admin-features.html.twig" %}
+<!-- ======= Container Section ======= -->
+<section>
+    <div class="container">
+
+        <h1>Edit Peinture</h1>
+
+        {{ include('admin/admin_peinture/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a class="btn btn-light mb-5" href="{{ path('admin_peinture_index') }}">back to list</a>
+
+        {{ include('admin/admin_peinture/_delete_form.html.twig') }}
+    </div>
+</section>
+{% endblock %}

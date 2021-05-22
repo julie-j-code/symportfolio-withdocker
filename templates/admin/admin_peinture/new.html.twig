@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Peinture{% endblock %}
+
+{% block body %}
+{% include "admin/admin-features.html.twig" %}
+<!-- ======= Container Section ======= -->
+<section>
+    <div class="container">
+        <h1>Create new Peinture</h1>
+
+        {{ include('admin/admin_peinture/_form.html.twig') }}
+
+        <a href="{{ path('admin_peinture_index') }}">back to list</a>
+    </div>
+</section>
+{% endblock %}

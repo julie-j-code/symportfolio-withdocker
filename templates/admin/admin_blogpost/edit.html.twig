@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Blogpost{% endblock %}
+
+{% block body %}
+
+{% include "admin/admin-features.html.twig" %}
+<!-- ======= Container Section ======= -->
+<section>
+    <div class="container">
+        <h1>Edit Blogpost</h1>
+
+        {{ include('admin/admin_blogpost/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a class="btn btn-light" href="{{ path('admin_blogpost_index') }}">back to list</a>
+
+        {{ include('admin/admin_blogpost/_delete_form.html.twig') }}
+    </div>
+</section>
+{% endblock %}
