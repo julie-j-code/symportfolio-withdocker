@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Blogpost{% endblock %}
+
+{% block body %}
+
+{% include "admin/admin-features.html.twig" %}
+<!-- ======= Container Section ======= -->
+<section>
+    <div class="container">
+        <h1>Create new Blogpost</h1>
+
+        {{ include('admin/admin_blogpost/_form.html.twig') }}
+
+        <a href="{{ path('admin_blogpost_index') }}">back to list</a>
+    </div>
+</section>
+{% endblock %}

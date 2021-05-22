@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blogpost{% endblock %}
+
+{% block body %}
+
+{% include "admin/admin-features.html.twig" %}
+<!-- ======= Container Section ======= -->
+<section>
+    <div class="container">
+        <h1>Blogpost</h1>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ blogpost.id }}</td>
+                </tr>
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ blogpost.titre }}</td>
+                </tr>
+                <tr>
+                    <th>Contenu</th>
+                    <td>{{ blogpost.contenu }}</td>
+                </tr>
+                <tr>
+                    <th>Slug</th>
+                    <td>{{ blogpost.slug }}</td>
+                </tr>
+                <tr>
+                    <th>CreatedAt</th>
+                    <td>{{ blogpost.createdAt ? blogpost.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-light" href="{{ path('admin_blogpost_index') }}">back to list</a>
+        <a class="btn btn-warning d-md-inline" href="{{ path('admin_blogpost_edit', {'id': blogpost.id}) }}">edit</a>
+
+        {{ include('admin/admin_blogpost/_delete_form.html.twig') }}
+    </div>
+</section>
+{% endblock %}

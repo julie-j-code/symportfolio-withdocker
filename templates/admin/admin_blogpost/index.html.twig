@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Blogpost index{% endblock %}
+
+{% block body %}
+
+{% include "admin/admin-features.html.twig" %}
+<!-- ======= Container Section ======= -->
+<section>
+    <div class="container">
+        <h1>Blogpost index</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Contenu</th>
+                    <th>Slug</th>
+                    <th>CreatedAt</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for blogpost in blogposts %}
+                <tr>
+                    <td>{{ blogpost.id }}</td>
+                    <td>{{ blogpost.titre }}</td>
+                    <td>{{ blogpost.contenu }}</td>
+                    <td>{{ blogpost.slug }}</td>
+                    <td>{{ blogpost.createdAt ? blogpost.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('admin_blogpost_show', {'id': blogpost.id}) }}">show</a>
+                        <a href="{{ path('admin_blogpost_edit', {'id': blogpost.id}) }}">edit</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('admin_blogpost_new') }}">Create new</a>
+    </div>
+</section>
+{% endblock %}

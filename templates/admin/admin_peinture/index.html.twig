@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peinture index{% endblock %}
+
+{% block body %}
+
+
+{% include "admin/admin-features.html.twig" %}
+
+<!-- ======= Container Section ======= -->
+<section>
+    <div class="container">
+
+        <h1>Peinture index</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    {# <th>Largeur</th>
+                    <th>Hauteur</th> #}
+                    <th>EnVente</th>
+                    <th>Prix</th>
+                    <th>DateRealisation</th>
+                    {# <th>CreatedAt</th> #}
+                    <th>Description</th>
+                    {# <th>Portfolio</th> #}
+                    {# <th>Slug</th> #}
+                    <th>File</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for peinture in peintures %}
+                <tr>
+                    <td>{{ peinture.id }}</td>
+                    <td>{{ peinture.nom }}</td>
+                    {# <td>{{ peinture.largeur }}</td>
+                    <td>{{ peinture.hauteur }}</td> #}
+                    <td>{{ peinture.enVente ? 'Yes' : 'No' }}</td>
+                    <td>{{ peinture.prix }}</td>
+                    <td>{{ peinture.dateRealisation ? peinture.dateRealisation|date('Y-m-d H:i:s') : '' }}</td>
+                    {# <td>{{ peinture.createdAt ? peinture.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                    <td>{{ peinture.description }}</td>
+                    {# <td>{{ peinture.portfolio ? 'Yes' : 'No' }}</td> #}
+                    {# <td>{{ peinture.slug }}</td> #}
+                    <td>{{ peinture.file }}</td>
+                    <td>
+                        <a href="{{ path('admin_peinture_show', {'id': peinture.id}) }}">show</a>
+                        <a href="{{ path('admin_peinture_edit', {'id': peinture.id}) }}">edit</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="13">no records found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('admin_peinture_new') }}">Create new</a>
+    </div>
+</section>
+{% endblock %}
