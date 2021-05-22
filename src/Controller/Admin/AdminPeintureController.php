@@ -90,6 +90,6 @@ class AdminPeintureController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin/admin_peinture_index');
+        return $this->redirectToRoute('admin_peinture_index');
     }
 }
