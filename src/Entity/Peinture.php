@@ -70,7 +70,7 @@ class Peinture
     private $slug;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255), cascade={"persist"}
      */
     private $file;
 
