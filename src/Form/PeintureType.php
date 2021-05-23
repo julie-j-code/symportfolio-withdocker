@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Peinture;
+use PhpParser\Node\Stmt\Label;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,13 +20,19 @@ class PeintureType extends AbstractType
             ->add('enVente')
             ->add('prix')
             ->add('dateRealisation')
-            // ->add('createdAt')
+            ->add('createdAt')
             ->add('description')
-            // ->add('portfolio')
+            ->add('portfolio')
             ->add('slug')
-            ->add('file')
-            // ->add('user')
-            // ->add('categorie')
+            ->add('file', FileType::class, [
+                'label' => 'Fichier Image',
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false
+
+            ])
+            ->add('user')
+            ->add('categorie')
         ;
     }
 
